@@ -1,0 +1,20 @@
+# OS
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# 报告与临时产物
+report.md
+*.tmp
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 编辑器
+.idea/
+.vscode/
+*.swp

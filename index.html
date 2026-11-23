@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="web-design-review：高级网页设计课堂跟做用的自定义 Skill，按结构、布局、可访问性、代码规范四条线体检 HTML 页面。">
+  <title>web-design-review · 网页设计跟做助手</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="page">
+      <a class="brand" href="#top">
+        <span class="brand__mark" aria-hidden="true">W</span>
+        <span>web-design-review</span>
+      </a>
+      <nav class="nav" aria-label="页面导航">
+        <a href="#ability">能力</a>
+        <a href="#flow">工作流</a>
+        <a href="#quickstart">快速开始</a>
+        <a href="#layout">目录结构</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero page" aria-labelledby="hero-title">
+      <span class="eyebrow">自定义 Skill · 课堂跟做实践</span>
+      <h1 id="hero-title">把一个页面当成<em>待评审的作业</em>，<br>逐条告诉你在哪扣分。</h1>
+      <p class="lead">
+        面向「高级网页设计」的自定义 Skill：读代码、跑体检、对照清单，输出可直接替换的修改方案和 100 分制自评分。
+        不写"感觉不错"，只写"第 12 行缺 alt，改成这样"。
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#quickstart">从零跑一遍 →</a>
+        <a class="btn btn--ghost" href="#ability">先看它能做什么</a>
+      </div>
+
+      <dl class="metrics">
+        <div class="metric">
+          <dt>检查维度</dt>
+          <dd>4 类</dd>
+        </div>
+        <div class="metric">
+          <dt>硬性检查项</dt>
+          <dd>6 条</dd>
+        </div>
+        <div class="metric">
+          <dt>评分口径</dt>
+          <dd>100 分制</dd>
+        </div>
+        <div class="metric">
+          <dt>运行依赖</dt>
+          <dd>0 个</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="section page" id="ability" aria-labelledby="ability-title">
+      <div class="section__head">
+        <h2 id="ability-title">四条线，覆盖一次作业评审的完整链路</h2>
+        <p>结构决定可维护性，布局决定在手机上会不会塌，可访问性决定会不会被扣分，代码规范决定改动成本。四类各占一块分数，缺一块报告就不完整。</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <h3>结构体检 <span class="card__tag">30 分</span></h3>
+          <p>DOCTYPE、html lang、语义标签（header/nav/main/footer）、标题层级不跳级、区块划分是否只有 div。</p>
+        </article>
+        <article class="card">
+          <h3>布局体检 <span class="card__tag">25 分</span></h3>
+          <p>viewport、断点数量、flex 还是 grid、盒模型是否统一、窄屏横向滚动、图片是否变形。</p>
+        </article>
+        <article class="card">
+          <h3>可访问性 <span class="card__tag">25 分</span></h3>
+          <p>图片 alt、正文对比度 4.5:1、键盘可聚焦、焦点轮廓可见、表单 label 关联。</p>
+        </article>
+        <article class="card">
+          <h3>代码规范 <span class="card__tag">20 分</span></h3>
+          <p>内联样式数量、class 语义化命名、缩进一致性、CSS 重复片段、失效资源链接。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section page" id="flow" aria-labelledby="flow-title">
+      <div class="section__head">
+        <h2 id="flow-title">五步工作流</h2>
+        <p>先让机器判掉能判的，剩下需要人来判断的部分才交给人，这样报告不会又长又空。</p>
+      </div>
+
+      <ol class="steps">
+        <li>
+          <strong>跑体检脚本</strong>
+          <span>check_page.py 扫一遍，拿到缺 DOCTYPE、缺 alt、重复 id、标签未闭合这类硬问题。</span>
+        </li>
+        <li>
+          <strong>读布局骨架</strong>
+          <span>判断主干用的是 flex、grid 还是浮动堆版，标出魔法数字和绝对定位。</span>
+        </li>
+        <li>
+          <strong>对照清单</strong>
+          <span>按 layout-checklist.md 四个维度逐条判"过 / 不过 / 待确认"，不写模糊结论。</span>
+        </li>
+        <li>
+          <strong>给替换代码</strong>
+          <span>布局问题必须附可直接替换的片段，模式取自 css-patterns.md，不拆碎改。</span>
+        </li>
+        <li>
+          <strong>出分级报告</strong>
+          <span>必修 → 建议 → 做得好的地方 → 下一步，问题一律按严重程度排序。</span>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section page" id="quickstart" aria-labelledby="quickstart-title">
+      <div class="section__head">
+        <h2 id="quickstart-title">快速开始</h2>
+        <p>Python 3.8+ 即可运行，脚本只用标准库，不需要 pip 安装任何东西。</p>
+      </div>
+
+      <pre><span class="cmt"># 体检单个页面</span>
+<span class="cmd">python</span> scripts/check_page.py index.html
+
+<span class="cmt"># 体检整个目录，并把报告写到文件</span>
+<span class="cmd">python</span> scripts/check_page.py ./pages --md report.md
+
+<span class="cmt"># 触发 Skill（把 SKILL.md 交给 AI 使用）</span>
+帮我体检一下这个页面，按必修/建议分级给清单</pre>
+    </section>
+
+    <section class="section page" id="layout" aria-labelledby="layout-title">
+      <div class="section__head">
+        <h2 id="layout-title">目录结构</h2>
+        <p>SKILL.md 是说明书，references 是判定口径，scripts 是执行器，index.html 是发布到 GitHub Pages 的展示页。</p>
+      </div>
+
+      <div class="tree">
+        <pre>web-design-skill/
+├── SKILL.md                 <span class="dim"># 触发条件 + 工作流程 + 输出模板</span>
+├── README.md                <span class="dim"># 项目说明与使用方法</span>
+├── index.html               <span class="dim"># GitHub Pages 落地页（就是你现在看的这页）</span>
+├── assets/style.css         <span class="dim"># 可复用页面骨架样例</span>
+├── references/
+│   ├── layout-checklist.md  <span class="dim"># 四维度清单 + 扣分口径</span>
+│   └── css-patterns.md      <span class="dim"># 栅格 / 居中 / 粘性页脚 / 卡片组</span>
+├── scripts/check_page.py    <span class="dim"># 零依赖体检脚本</span>
+└── LICENSE</pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page">
+      <span>web-design-review · 计算机科学与技术专业 · 高级网页设计课堂跟做</span>
+      <span>发布于 <a href="https://github.com/" rel="noopener">GitHub Pages</a> · MIT License</span>
+    </div>
+  </footer>
+</body>
+</html>
